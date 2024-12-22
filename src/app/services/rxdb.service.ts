@@ -16,7 +16,7 @@ export type ContactsDatabase = RxDatabase<DatabaseCollections>;
   providedIn: 'root',
 })
 export class RxdbService {
-  contactsDb$ = from(this.initDb()).pipe(shareReplay(1));
+  public contactsCollection$ = from(this.initDb()).pipe(shareReplay(1));
 
   async initDb() {
     const db = await createRxDatabase<DatabaseCollections>({
@@ -30,6 +30,7 @@ export class RxdbService {
       },
     });
 
+    // Generate unique id for an inserted contact
     collections.contacts.preInsert((doc) => {
       if (!doc.id) {
         doc.id = uuidv4();
