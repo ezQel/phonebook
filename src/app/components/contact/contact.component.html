@@ -2,8 +2,11 @@
 <div
   class="flex items-center p-2 border-b border-gray-200 hover:bg-gray-100 cursor-pointer"
 >
-  <mat-checkbox (change)="selectionChange.emit($event)" />
-  <span class="text-6xl text-zinc-500 me-2">
+  <mat-checkbox
+    (click)="$event.stopPropagation()"
+    (change)="selectionChange.emit($event)"
+  />
+  <span class="text-6xl text-stone-500 me-2">
     <mat-icon inline fontIcon="account_box" />
   </span>
   <div class="mb-2">
@@ -18,7 +21,10 @@
 } @else {
 <div class="text-center border-slate-100 border rounded-lg">
   <div class="text-start">
-    <mat-checkbox (change)="selectionChange.emit($event)" />
+    <mat-checkbox
+      (click)="$event.stopPropagation()"
+      (change)="selectionChange.emit($event)"
+    />
   </div>
   <div class="text-6xl text-zinc-500">
     <mat-icon inline fontIcon="account_box" />

@@ -1,0 +1,57 @@
+<!-- <h2 mat-dialog-title>Contact details</h2> -->
+<mat-dialog-content>
+  <div class="text-end">
+    <button matDialogClose class="btn">
+      <mat-icon fontIcon="close" />
+    </button>
+  </div>
+  <div class="flex items-center">
+    <div class="text-9xl text-stone-500 me-4">
+      <mat-icon fontIcon="account_circle" inline="" />
+    </div>
+    <div>
+      <div class="mb-3 font-bold text-2xl">
+        {{ contact.firstName }} {{ contact.lastName }}
+      </div>
+      <button class="btn bg-slate-100 me-3">
+        <mat-icon fontIcon="edit" /> Edit
+      </button>
+      <button class="btn bg-slate-100">
+        <mat-icon fontIcon="delete" /> Delete
+      </button>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-2 border-b border-gray-200 py-3 px-1">
+    <div>
+      <div>First Name</div>
+      <div class="font-medium text-base">
+        {{ contact.firstName }}
+      </div>
+    </div>
+    <div>
+      <div>Last Name</div>
+      <div class="font-medium text-base">
+        {{ contact.lastName }}
+      </div>
+    </div>
+  </div>
+  <div class="border-b border-gray-200 py-3 px-1">
+    <div>Phone Number</div>
+    <div class="font-medium text-base">
+      {{ contact.phoneNumber }}
+    </div>
+  </div>
+  <div class="border-b border-gray-200 py-3 px-1">
+    <div>Email</div>
+    <div class="font-medium text-base">
+      {{ contact.email }}
+    </div>
+  </div>
+  <div class="border-b border-gray-200 py-3 px-1">
+    <div>Physical Address</div>
+    <div class="font-medium text-base">
+      {{ contact.physicalAddress }}
+    </div>
+  </div>
+</mat-dialog-content>
