@@ -42,6 +42,12 @@ export class ContactListComponent implements OnInit {
 
   getContacts(): void {
     this.contactService.getContacts().subscribe((contacts) => {
+      console.log(contacts.length);
+
+      if (contacts.length < 1) {
+        this.initDummyData();
+      }
+
       this.contactsDataSource = new MatTableDataSource<Contact>(
         contacts.map((c) => c._data)
       );
@@ -75,5 +81,52 @@ export class ContactListComponent implements OnInit {
 
   downloadCSV(): void {
     //
+  }
+
+  initDummyData(): void {
+    const contacts = [
+      {
+        phoneNumber: '0712345678',
+        email: 'johnDoe@gmail.com',
+        firstName: 'John',
+        lastName: 'Doe',
+        physicalAddress: '123, Good Place',
+        isFavourited: true,
+      },
+      {
+        phoneNumber: '0712345678',
+        email: 'abraham@gmail.com',
+        firstName: 'Abraham',
+        lastName: 'Lincoln',
+        physicalAddress: '123, Good Place',
+        isFavourited: true,
+      },
+      {
+        phoneNumber: '0712345678',
+        email: 'jane@gmail.com',
+        firstName: 'Jane',
+        lastName: 'Doe',
+        physicalAddress: '123, Good Place',
+        isFavourited: true,
+      },
+      {
+        phoneNumber: '0712345678',
+        email: 'jomo@gmail.com',
+        firstName: 'Jomo',
+        lastName: 'Kenyatta',
+        physicalAddress: '123, Good Place',
+        isFavourited: true,
+      },
+
+      {
+        phoneNumber: '0712345678',
+        email: 'zainab@gmail.com',
+        firstName: 'Zainab',
+        physicalAddress: '123, Good Place',
+        isFavourited: true,
+      },
+    ] as Contact[];
+
+    this.contactService.addContacts(contacts).subscribe();
   }
 }

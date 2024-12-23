@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatIcon } from '@angular/material/icon';
 import { PreferencesComponent } from '../preferences/preferences.component';
@@ -9,11 +9,18 @@ import { PreferencesComponent } from '../preferences/preferences.component';
   templateUrl: './top-bar.component.html',
   styleUrl: './top-bar.component.scss',
 })
-export class TopBarComponent {
+export class TopBarComponent implements OnInit {
   private dialog = inject(MatDialog);
 
   get isDarkMode(): boolean {
     return Boolean(localStorage.getItem('darkMode'));
+  }
+
+  ngOnInit(): void {
+    if (this.isDarkMode) {
+      document.documentElement.classList.add('dark');
+      document.documentElement.classList.add('bg-black');
+    }
   }
 
   toggleDarkMode(): void {
