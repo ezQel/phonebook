@@ -1,7 +1,6 @@
 <div class="py-12 px-4 md:px-24 mb-24">
-  <h1 class="flex items-center text-3xl font-medium mb-8">
-    Contacts
-    <app-category-filter [categoryControl]="category" />
+  <h1 class="flex items-center text-3xl font-medium mb-8 dark:text-slate-300">
+    Contacts <app-category-filter [categoryControl]="category" />
   </h1>
   <div class="lg:flex items-center gap-8 mb-8">
     <div class="flex-1">
@@ -9,15 +8,18 @@
         [formControl]="search"
         (ngModelChange)="filterContacts($event)"
         type="search"
-        class="flex-1 border border-gray-300 rounded-lg p-2 w-full"
+        class="flex-1 border border-gray-300 dark:border-gray-800 rounded-lg p-2 w-full dark:bg-slate-800 dark:text-white"
         placeholder="Search by name, email or phone number"
       />
     </div>
     <div class="my-4 lg:my-0">
-      <button (click)="deleteContacts()" class="btn me-4 text-red-600">
+      <button
+        (click)="deleteContacts()"
+        class="btn me-4 text-red-600 dark:text-red-700 hover:text-red-600"
+      >
         <mat-icon fontIcon="delete" /> Delete Selected
       </button>
-      <button (click)="downloadCSV()" class="btn">
+      <button (click)="downloadCSV()" class="btn dark:text-slate-300">
         <mat-icon fontIcon="ios_share" /> Export
       </button>
     </div>
@@ -27,6 +29,7 @@
         [value]="viewMode"
         name="viewMode"
         aria-label="View Mode"
+        class="dark:bg-slate-400"
       >
         <mat-button-toggle value="LIST">
           <mat-icon fontIcon="list" />
@@ -44,9 +47,8 @@
     @if (!contactsDataSource.data.length) {
     <p class="p-8">- No contacts -</p>
     } @else if (!contactsDataSource.filteredData.length) {
-    <p>-Contact not found-</p>
-    }
-    @for (contact of contactsDataSource.filteredData; track contact.id) {
+    <p class="p-8">- Contact matching filter or search query not found -</p>
+    } @for (contact of contactsDataSource.filteredData; track contact.id) {
     <app-contact
       (selectionChange)="contactSelection.toggle(contact.id)"
       [contact]="contact"

@@ -18,19 +18,28 @@ export class TopBarComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.isDarkMode) {
-      document.documentElement.classList.add('dark');
-      document.documentElement.classList.add('bg-black');
+      this.setDarkMode();
     }
   }
 
   toggleDarkMode(): void {
     if (this.isDarkMode) {
-      document.documentElement.classList.remove('dark');
-      localStorage.removeItem('darkMode');
+      this.setLightMode();
       return;
     }
 
+    this.setDarkMode();
+  }
+
+  setLightMode(): void {
+    document.documentElement.classList.remove('dark');
+    document.documentElement.classList.remove('bg-slate-950');
+    localStorage.removeItem('darkMode');
+  }
+
+  setDarkMode(): void {
     document.documentElement.classList.add('dark');
+    document.documentElement.classList.add('bg-slate-950');
     localStorage.setItem('darkMode', 'true');
   }
 

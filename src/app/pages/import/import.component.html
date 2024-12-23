@@ -1,15 +1,15 @@
 <div class="py-12 px-4 md:px-24 mb-24">
-  <h1 class="text-3xl font-medium mb-8">Import Contacts</h1>
-  <div class="mb-3">
+  <h1 class="text-3xl font-medium mb-8 dark:text-slate-300">Import Contacts</h1>
+  <div class="mb-6">
     <button
       (click)="downloadTemplate()"
-      class="btn text-white bg-green-600 hover:bg-green-700"
+      class="btn text-white dark:text-white bg-green-600 hover:bg-green-700"
     >
       <mat-icon fontIcon="cloud_download" class="me-1" /> Download Template
     </button>
   </div>
   <label
-    class="text-center block bg-slate-100 md:px-32 md:py-12 mb-4 rounded-xl cursor-pointer"
+    class="text-center block bg-slate-100 dark:bg-slate-900 dark:text-slate-300 px-32 py-12 mb-4 rounded-xl cursor-pointer"
   >
     <div class="text-6xl mb-3">
       <mat-icon fontIcon="upload_file" inline />
@@ -22,13 +22,15 @@
       accept=".csv"
     />
     @if(fileName) {
-    <div class="inline-flex items-center bg-slate-200 p-2 rounded-xl my-2">
+    <div
+      class="inline-flex items-center bg-slate-200 dark:bg-slate-700 p-2 rounded-xl my-2"
+    >
       <mat-icon fontIcon="upload_file" />
       <span class="ms-2 font-bold me-4">{{ fileName }}</span>
       <div class="flex-1 text-end">
         <button
           (click)="saveContacts()"
-          class="btn bg-green-800 hover:bg-green-900 text-white font-medium"
+          class="btn bg-green-800 hover:bg-green-900 text-white dark:text-white font-medium"
         >
           Import
         </button>
@@ -37,7 +39,7 @@
     }
   </label>
   <div class="border border-gray-200 rounded-lg p-4 text-sm">
-    <div class="text-gray-800 mb-2 font-medium">Please note the following:</div>
+    <div class="text-gray-800 mb-2 font-medium dark:text-white">Please note the following:</div>
     <ol class="list-decimal ms-4 text-gray-700 dark:text-white">
       <li class="mb-1">
         The <strong>CSV</strong> file must contain the headers provided in the

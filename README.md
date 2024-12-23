@@ -20,8 +20,10 @@ In order to have more consistent builds, use a strict `node` and `npm` version a
 ## Features
 
 1.  Contact List
-1.  Viewing and Editing a Contact
-1.  Deleting contacts
+1.  Search and filtering by category
+1.  Viewing, Editing and Deleting a Contact
+1.  Contact grouping
 1.  Setting View mode preference
 1.  Importing Contacts
 1.  Exporting Contacts
+1.  Dark mode

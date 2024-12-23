@@ -1,25 +1,28 @@
+
+<div mat-dialog-title class="text-end">
+  <button matDialogClose class="btn">
+    <mat-icon fontIcon="close" />
+  </button>
+</div>
 <mat-dialog-content>
-  <div class="text-end">
-    <button matDialogClose class="btn">
-      <mat-icon fontIcon="close" />
-    </button>
-  </div>
-  <div class="flex items-center">
-    <div class="text-9xl text-stone-500 me-4">
-      <mat-icon fontIcon="account_circle" inline="" />
+  <div class="flex md:items-center my-4 md:my-0">
+    <div class="text-6xl md:text-8xl text-stone-500 me-2 md:me-4">
+      <mat-icon fontIcon="account_circle" inline />
     </div>
     <div>
-      <div class="mb-3 font-bold text-2xl">
+      <div class="mb-3 font-bold text-lg md:text-2xl">
         {{ contact.firstName }} {{ contact.lastName }}
       </div>
-      <button (click)="editContact()" class="btn bg-slate-100 me-3">
-        <mat-icon fontIcon="edit" /> Edit
-      </button>
-      <button (click)="deleteContact()" class="btn bg-slate-100">
-        <mat-icon fontIcon="delete" /> Delete
-      </button>
+      <div class="text-xs md:text-base">
+        <button (click)="editContact()" class="btn bg-slate-100 me-1 md:me-3">
+          <mat-icon fontIcon="edit" /> Edit
+        </button>
+        <button (click)="deleteContact()" class="btn bg-slate-100">
+          <mat-icon fontIcon="delete" /> Delete
+        </button>
+      </div>
     </div>
-    <div class="flex-1 text-end pe-4">
+    <div class="flex-1 text-end md:pe-4">
       <app-favourite-toggle [contact]="contact" />
     </div>
   </div>

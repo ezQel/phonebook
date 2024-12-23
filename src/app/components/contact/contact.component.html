@@ -1,19 +1,19 @@
 @if (viewMode === "LIST") {
 <div
-  class="flex items-center p-2 border-b border-gray-200 hover:bg-gray-100 cursor-pointer"
+  class="flex items-center p-2 border-b border-gray-200 hover:bg-gray-100 dark:hover:bg-slate-900 cursor-pointer"
 >
   <mat-checkbox
     (click)="$event.stopPropagation()"
     (change)="selectionChange.emit($event)"
   />
-  <span class="text-6xl text-stone-500 me-2">
+  <span class="text-6xl text-stone-500 dark:text-stone-300 me-2">
     <mat-icon inline fontIcon="account_box" />
   </span>
-  <div class="mb-2">
+  <div class="mb-2 dark:text-stone-300">
     <div class="text-lg font-medium mb-1">
       {{ contact.firstName }} {{ contact.lastName }}
     </div>
-    <div class="text-xs text-gray-600">
+    <div class="text-xs text-gray-600 dark:text-gray-400">
       {{ contact.phoneNumber }} &middot; {{ contact.email }}
     </div>
   </div>
@@ -22,7 +22,9 @@
   </div>
 </div>
 } @else {
-<div class="text-center border-slate-100 border rounded-lg">
+<div
+  class="text-center border-slate-100 border rounded-lg hover:bg-gray-100 dark:hover:bg-slate-900 cursor-pointer"
+>
   <div class="text-start">
     <mat-checkbox
       (click)="$event.stopPropagation()"
@@ -32,11 +34,11 @@
   <div class="text-6xl text-zinc-500">
     <mat-icon inline fontIcon="account_box" />
   </div>
-  <div class="mb-2">
+  <div class="mb-2 dark:text-stone-300">
     <div class="text-lg font-medium mb-2">
       {{ contact.firstName }} {{ contact.lastName }}
     </div>
-    <div class="text-xs text-gray-600">
+    <div class="text-xs text-gray-600 dark:text-gray-400">
       <div>{{ contact.phoneNumber }}</div>
       <div>{{ contact.email }}</div>
     </div>

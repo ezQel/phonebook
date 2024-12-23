@@ -5,17 +5,24 @@ import {
   MatDialogClose,
   MatDialogContent,
   MatDialogRef,
+  MatDialogTitle,
 } from '@angular/material/dialog';
 import { MatIcon } from '@angular/material/icon';
 import { Contact } from '../../models/contact';
 import { ContactService } from '../../services/contact.service';
 import { ContactEditComponent } from '../contact-edit/contact-edit.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { FavouriteToggleComponent } from "../favourite-toggle/favourite-toggle.component";
+import { FavouriteToggleComponent } from '../favourite-toggle/favourite-toggle.component';
 
 @Component({
   selector: 'app-contact-details',
-  imports: [MatDialogContent, MatDialogClose, MatIcon, FavouriteToggleComponent],
+  imports: [
+    MatDialogContent,
+    MatDialogClose,
+    MatDialogTitle,
+    MatIcon,
+    FavouriteToggleComponent,
+  ],
   templateUrl: './contact-details.component.html',
 })
 export class ContactDetailsComponent implements OnInit {
@@ -41,7 +48,6 @@ export class ContactDetailsComponent implements OnInit {
       data: this.contact,
       minWidth: '320px',
       width: '80%',
-      height: '80%',
     });
   }
 

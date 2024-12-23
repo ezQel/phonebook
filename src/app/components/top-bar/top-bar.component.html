@@ -1,9 +1,9 @@
-<div class="text-end p-4 md:py-8 md:px-24">
+<div class="text-end p-4 md:py-8 md:px-24 dark:text-white">
   <button (click)="toggleDarkMode()" class="btn me-3">
     @if (isDarkMode) {
-    <mat-icon fontIcon="dark_mode" />
-    } @else {
     <mat-icon fontIcon="light_mode" />
+    } @else {
+    <mat-icon fontIcon="dark_mode" />
     }
   </button>
   <button (click)="openPreferences()" class="btn">
