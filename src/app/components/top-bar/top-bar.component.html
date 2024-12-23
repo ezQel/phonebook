@@ -1,0 +1,12 @@
+<div class="text-end py-8 px-24 bg-white">
+  <button (click)="toggleDarkMode()" class="btn me-3">
+    @if (isDarkMode) {
+    <mat-icon fontIcon="dark_mode" />
+    } @else {
+    <mat-icon fontIcon="light_mode" />
+    }
+  </button>
+  <button (click)="openPreferences()" class="btn">
+    <mat-icon fontIcon="settings" />
+  </button>
+</div>

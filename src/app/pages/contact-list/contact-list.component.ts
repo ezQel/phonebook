@@ -31,7 +31,7 @@ export class ContactListComponent implements OnInit {
   private snackbar = inject(MatSnackBar);
 
   search = new FormControl();
-  viewMode: ViewMode = 'LIST';
+  viewMode: ViewMode = this.contactService.getViewMode();
 
   contactsDataSource?: MatTableDataSource<Contact>;
   contactSelection = new SelectionModel<string>(true);
@@ -74,6 +74,6 @@ export class ContactListComponent implements OnInit {
   }
 
   downloadCSV(): void {
-    // 
+    //
   }
 }

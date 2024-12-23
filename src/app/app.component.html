@@ -2,7 +2,12 @@
   <app-side-menu />
 </div>
 <div class="md:ms-[200px]">
-  <router-outlet />
+  <div class="fixed right-0 top-0">
+    <app-top-bar />
+  </div>
+  <div class="mt-8">
+    <router-outlet />
+  </div>
 </div>
 <div class="md:hidden fixed bottom-0 left-0 right-0 bg-slate-50">
   <app-bottom-menu />

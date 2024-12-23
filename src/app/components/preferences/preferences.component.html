@@ -1,0 +1,19 @@
+<mat-dialog-content>
+  <div class="flex mb-3">
+    <h2 class="flex-1 text-xl font-bold">Edit Contact</h2>
+    <button matDialogClose class="btn">
+      <mat-icon fontIcon="close" />
+    </button>
+  </div>
+  <div>Default contacts view mode</div>
+  <div class="p-4 mb-4">
+    <select
+      (ngModelChange)="setViewMode($event)"
+      [formControl]="viewMode"
+      class="px-4 py-3 font-bold mt-2 w-full"
+    >
+      <option value="LIST">List</option>
+      <option value="GRID">Grid</option>
+    </select>
+  </div>
+</mat-dialog-content>

@@ -2,6 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { from, switchMap } from 'rxjs';
 import { Contact } from '../models/contact';
 import { RxdbService } from './rxdb.service';
+import { ViewMode } from '../models/view-mode';
 
 @Injectable({
   providedIn: 'root',
@@ -37,5 +38,10 @@ export class ContactService {
     return this.db.contactsCollection$.pipe(
       switchMap((collection) => from(collection.bulkRemove(contactIds)))
     );
+  }
+
+  getViewMode(): ViewMode {
+    const viewMode = localStorage.getItem('view-mode') as ViewMode;
+    return viewMode || 'LIST';
   }
 }
