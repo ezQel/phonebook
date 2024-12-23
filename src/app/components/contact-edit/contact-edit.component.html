@@ -45,10 +45,12 @@
         class="form-control"
         formControlName="phoneNumber"
         id="phone-number"
+        required
       />
-      @if (contactForm.hasError("phoneNumber?.errors?.required")) {
+      @if (contactForm.get("phoneNumber")?.hasError("required")) {
       <span class="text-red-500">Phone number is required</span>
-      } @if (contactForm.hasError("phoneNumber?.errors?.invalidPhoneNumber")) {
+      }
+      @if (contactForm.get("phoneNumber")?.hasError("invalidPhoneNumber")) {
       <span class="text-red-500">Invalid phone number</span>
       }
     </div>
@@ -60,6 +62,9 @@
         formControlName="email"
         id="email"
       />
+      @if (contactForm.get("email")?.hasError("email")) {
+        <span class="text-red-500">Invalid email</span>
+        }
     </div>
     <div>
       <label for="physical-address">Physical Address</label>

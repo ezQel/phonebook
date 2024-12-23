@@ -35,6 +35,7 @@ export class ContactService {
   }
 
   deleteContacts(contactIds: string[]) {
+    // NOTE: By default, removed documents are soft-deleted by rxdb
     return this.db.contactsCollection$.pipe(
       switchMap((collection) => from(collection.bulkRemove(contactIds)))
     );

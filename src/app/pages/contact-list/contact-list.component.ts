@@ -64,8 +64,13 @@ export class ContactListComponent implements OnInit {
   }
 
   deleteContacts(): void {
+    const contactIds = this.contactSelection.selected;
+
+    if (!contactIds.length) {
+      return
+    }
+
     if (confirm('Delete selected contacts?')) {
-      const contactIds = this.contactSelection.selected;
 
       this.contactService.deleteContacts(contactIds).subscribe({
         next: () => {
