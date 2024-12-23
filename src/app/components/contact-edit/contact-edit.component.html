@@ -46,6 +46,11 @@
         formControlName="phoneNumber"
         id="phone-number"
       />
+      @if (contactForm.hasError("phoneNumber?.errors?.required")) {
+      <span class="text-red-500">Phone number is required</span>
+      } @if (contactForm.hasError("phoneNumber?.errors?.invalidPhoneNumber")) {
+      <span class="text-red-500">Invalid phone number</span>
+      }
     </div>
     <div>
       <label for="last-name">Email</label>
@@ -71,7 +76,7 @@
   <button
     class="btn bg-green-600 text-white"
     (click)="update()"
-    [disabled]="saving"
+    [disabled]="contactForm.invalid || saving"
   >
     Save
   </button>
