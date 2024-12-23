@@ -1,22 +1,24 @@
 <div class="py-12 px-4 md:px-24 mb-24">
   <h1 class="text-3xl font-medium mb-8">Contacts</h1>
-  <div class="lg:flex items-center mb-8">
-    <input
-      [formControl]="search"
-      (ngModelChange)="filterContacts($event)"
-      type="search"
-      class="flex-1 border border-gray-300 rounded-lg p-2 me-12"
-      placeholder="Search by name, email or phone number"
-    />
-    <div class="flex items-center gap-8 mt-4 lg:mt-0">
-      <div class="flex-1">
-        <button (click)="deleteContacts()" class="btn me-4 text-red-600">
-          <mat-icon fontIcon="delete" /> Delete Selected
-        </button>
-        <button (click)="downloadCSV()" class="btn">
-          <mat-icon fontIcon="ios_share" /> Export
-        </button>
-      </div>
+  <div class="lg:flex items-center gap-8 mb-8">
+    <div class="flex-1">
+      <input
+        [formControl]="search"
+        (ngModelChange)="filterContacts($event)"
+        type="search"
+        class="flex-1 border border-gray-300 rounded-lg p-2 w-full"
+        placeholder="Search by name, email or phone number"
+      />
+    </div>
+    <div class="my-4 lg:my-0">
+      <button (click)="deleteContacts()" class="btn me-4 text-red-600">
+        <mat-icon fontIcon="delete" /> Delete Selected
+      </button>
+      <button (click)="downloadCSV()" class="btn">
+        <mat-icon fontIcon="ios_share" /> Export
+      </button>
+    </div>
+    <div class="text-end">
       <mat-button-toggle-group
         (valueChange)="toggleViewMode($event)"
         [value]="viewMode"

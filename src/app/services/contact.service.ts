@@ -1,8 +1,8 @@
 import { inject, Injectable } from '@angular/core';
 import { from, switchMap } from 'rxjs';
 import { Contact } from '../models/contact';
-import { RxdbService } from './rxdb.service';
 import { ViewMode } from '../models/view-mode';
+import { RxdbService } from './rxdb.service';
 
 @Injectable({
   providedIn: 'root',

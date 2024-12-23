@@ -43,8 +43,6 @@ export class ContactListComponent implements OnInit {
 
   getContacts(): void {
     this.contactService.getContacts().subscribe((contacts) => {
-      console.log(contacts.length);
-
       if (contacts.length < 1) {
         this.initDummyData();
       }
@@ -67,11 +65,10 @@ export class ContactListComponent implements OnInit {
     const contactIds = this.contactSelection.selected;
 
     if (!contactIds.length) {
-      return
+      return;
     }
 
     if (confirm('Delete selected contacts?')) {
-
       this.contactService.deleteContacts(contactIds).subscribe({
         next: () => {
           this.snackbar.open('Contacts deleted successfully', 'dismiss', {

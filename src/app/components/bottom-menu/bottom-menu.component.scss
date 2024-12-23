@@ -1,8 +1,16 @@
 .nav-item {
-  @apply flex flex-col flex-1 items-center font-medium py-2 px-3 text-gray-700 cursor-pointer font-medium;
+  @apply flex flex-col flex-1 items-center font-medium py-2 px-3 text-gray-700 cursor-pointer  text-sm;
 }
 
 .nav-item.active,
 .nav-item:hover {
-  @apply text-white text-green-800 border-b-2 border-green-800;
+  @apply text-white text-green-800;
+
+  .icon {
+    @apply bg-green-100;
+  }
+}
+
+.icon {
+  @apply pt-2 pb-1 px-3 rounded-xl my-1;
 }
