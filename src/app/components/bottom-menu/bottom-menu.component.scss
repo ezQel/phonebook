@@ -1,13 +1,13 @@
 .nav-item {
-  @apply flex flex-col flex-1 items-center font-medium py-2 px-3 text-gray-700 cursor-pointer  text-sm;
+  @apply flex flex-col flex-1 items-center font-medium py-2 px-3 text-gray-700 dark:text-gray-300 cursor-pointer  text-sm;
 }
 
 .nav-item.active,
 .nav-item:hover {
-  @apply text-white text-green-800;
+  @apply text-white text-green-800 dark:text-green-200;
 
   .icon {
-    @apply bg-green-100;
+    @apply bg-green-100 dark:bg-green-950;
   }
 }
 
