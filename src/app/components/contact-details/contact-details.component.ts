@@ -4,11 +4,13 @@ import {
   MatDialog,
   MatDialogClose,
   MatDialogContent,
+  MatDialogRef,
 } from '@angular/material/dialog';
 import { MatIcon } from '@angular/material/icon';
 import { Contact } from '../../models/contact';
 import { ContactService } from '../../services/contact.service';
 import { ContactEditComponent } from '../contact-edit/contact-edit.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-contact-details',
@@ -18,6 +20,8 @@ import { ContactEditComponent } from '../contact-edit/contact-edit.component';
 export class ContactDetailsComponent implements OnInit {
   private contactId: string = inject(MAT_DIALOG_DATA);
   private dialog = inject(MatDialog);
+  private dialogRef = inject(MatDialogRef);
+  private snackBar = inject(MatSnackBar);
   private contactService = inject(ContactService);
   contact!: Contact;
 
@@ -41,6 +45,18 @@ export class ContactDetailsComponent implements OnInit {
   }
 
   deleteContact(): void {
-    //TODO;
+    if (confirm('Delete contact?')) {
+      this.contactService.deleteContacts([this.contactId]).subscribe({
+        next: () => {
+          this.snackBar.open('Contact deleted successfully', 'dismiss', {
+            duration: 1500,
+          });
+          this.dialogRef.close();
+        },
+        error: () => {
+          this.snackBar.open('deletion failed', 'dismiss');
+        },
+      });
+    }
   }
 }

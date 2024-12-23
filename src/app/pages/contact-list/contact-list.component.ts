@@ -13,6 +13,7 @@ import { ContactComponent } from '../../components/contact/contact.component';
 import { Contact } from '../../models/contact';
 import { ViewMode } from '../../models/view-mode';
 import { ContactService } from '../../services/contact.service';
+import { utils, writeFile } from 'xlsx';
 
 @Component({
   selector: 'app-contact-list',
@@ -63,16 +64,20 @@ export class ContactListComponent implements OnInit {
   }
 
   deleteContacts(): void {
-    //TODO: Confirmation modal
-    const contactIds = this.contactSelection.selected;
+    if (confirm('Delete selected contacts?')) {
+      const contactIds = this.contactSelection.selected;
 
-    this.contactService.deleteContacts(contactIds).subscribe({
-      next: () =>
-        this.snackbar.open('Contacts deleted successfully', 'dismiss', {
-          duration: 1500,
-        }),
-      error: () => this.snackbar.open('deletion failed', 'dismiss'),
-    });
+      this.contactService.deleteContacts(contactIds).subscribe({
+        next: () => {
+          this.snackbar.open('Contacts deleted successfully', 'dismiss', {
+            duration: 1500,
+          });
+        },
+        error: () => {
+          this.snackbar.open('deletion failed', 'dismiss');
+        },
+      });
+    }
   }
 
   toggleViewMode(mode: ViewMode): void {
@@ -80,7 +85,26 @@ export class ContactListComponent implements OnInit {
   }
 
   downloadCSV(): void {
-    //
+    const contacts = this.contactsDataSource?.data;
+
+    if (!contacts) {
+      return;
+    }
+
+    const sheetData = contacts.map((contact) => {
+      return {
+        'FIRST NAME': contact.firstName,
+        'LAST NAME': contact.lastName,
+        EMAIL: contact.email,
+        'PHONE NUMBER': contact.phoneNumber,
+        'PHYSICAL ADDRESS': contact.physicalAddress,
+      };
+    });
+
+    const ws = utils.json_to_sheet(sheetData);
+    const wb = utils.book_new();
+    utils.book_append_sheet(wb, ws);
+    writeFile(wb, 'contacts.csv');
   }
 
   initDummyData(): void {
