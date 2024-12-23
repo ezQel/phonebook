@@ -54,6 +54,16 @@
       }
     </div>
     <div>
+      <label for="category">Category</label>
+      <select formControlName="category" class="form-control" id="category">
+        <option [value]="null">--Not specified--</option>
+        <option value="Family">Family</option>
+        <option value="Friends">Friends</option>
+        <option value="Work">Work</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+    <div>
       <label for="last-name">Email</label>
       <input
         type="email"

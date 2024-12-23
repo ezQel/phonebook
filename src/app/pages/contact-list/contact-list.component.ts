@@ -9,11 +9,12 @@ import {
 import { MatIcon } from '@angular/material/icon';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
+import { utils, writeFile } from 'xlsx';
 import { ContactComponent } from '../../components/contact/contact.component';
 import { Contact } from '../../models/contact';
 import { ViewMode } from '../../models/view-mode';
 import { ContactService } from '../../services/contact.service';
-import { utils, writeFile } from 'xlsx';
+import { CategoryFilterComponent } from '../../components/category-filter/category-filter.component';
 
 @Component({
   selector: 'app-contact-list',
@@ -24,6 +25,7 @@ import { utils, writeFile } from 'xlsx';
     MatButtonToggle,
     MatIcon,
     ReactiveFormsModule,
+    CategoryFilterComponent,
   ],
   templateUrl: './contact-list.component.html',
 })
@@ -32,6 +34,7 @@ export class ContactListComponent implements OnInit {
   private snackbar = inject(MatSnackBar);
 
   search = new FormControl();
+  category = new FormControl('All');
   viewMode: ViewMode = this.contactService.getViewMode();
 
   contactsDataSource?: MatTableDataSource<Contact>;
@@ -50,15 +53,36 @@ export class ContactListComponent implements OnInit {
       this.contactsDataSource = new MatTableDataSource<Contact>(
         contacts.map((c) => c._data)
       );
+
+      this.filterByCategory();
     });
   }
 
   filterContacts(filterStr: string): void {
+    // Reset category filter
+    this.category.setValue('All');
+
     if (!this.contactsDataSource) {
       return;
     }
 
     this.contactsDataSource.filter = filterStr.trim().toLowerCase();
+  }
+
+  filterByCategory(): void {
+    this.category.valueChanges.subscribe((category) => {
+      if (!this.contactsDataSource) {
+        return;
+      }
+
+      if (category === 'All') {
+        this.contactsDataSource.filter = '';
+        return;
+      }
+
+      this.contactsDataSource.filteredData =
+        this.contactsDataSource.data.filter((c) => c.category === category);
+    });
   }
 
   deleteContacts(): void {

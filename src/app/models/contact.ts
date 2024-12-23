@@ -5,7 +5,7 @@ import {
 } from 'rxdb';
 
 export const contactSchemaLiteral = {
-  version: 0,
+  version: 1,
   primaryKey: 'id',
   type: 'object',
   properties: {
@@ -33,6 +33,9 @@ export const contactSchemaLiteral = {
     },
     isFavourited: {
       type: 'boolean',
+    },
+    category: {
+      type: 'string',
     },
   },
   required: ['id', 'phoneNumber'],

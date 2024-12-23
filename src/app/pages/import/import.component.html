@@ -1,4 +1,4 @@
-<div class="p-24">
+<div class="py-12 px-4 md:px-24 mb-24">
   <h1 class="text-3xl font-medium mb-8">Import Contacts</h1>
   <div class="mb-3">
     <button
@@ -15,7 +15,12 @@
       <mat-icon fontIcon="upload_file" inline />
     </div>
     <div class="font-bold mb-2">Click here to select CSV file</div>
-    <input (change)="readFile($event)" class="hidden" type="file" />
+    <input
+      (change)="readFile($event)"
+      class="hidden"
+      type="file"
+      accept=".csv"
+    />
     @if(fileName) {
     <div class="inline-flex items-center bg-slate-200 p-2 rounded-xl my-2">
       <mat-icon fontIcon="upload_file" />

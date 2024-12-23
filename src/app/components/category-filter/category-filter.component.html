@@ -1,0 +1,17 @@
+<button [matMenuTriggerFor]="menu" class="btn text-sky-500 ms-4 text-base">
+  {{ categoryControl.value }}
+  <mat-icon fontIcon="keyboard_arrow_down" class="ms-1" />
+</button>
+<mat-menu #menu="matMenu">
+  <button (click)="categoryControl.setValue('All')" mat-menu-item>All</button>
+  <button (click)="categoryControl.setValue('Family')" mat-menu-item>
+    Family
+  </button>
+  <button (click)="categoryControl.setValue('Friends')" mat-menu-item>
+    Friends
+  </button>
+  <button (click)="categoryControl.setValue('Work')" mat-menu-item>Work</button>
+  <button (click)="categoryControl.setValue('Other')" mat-menu-item>
+    Other
+  </button>
+</mat-menu>

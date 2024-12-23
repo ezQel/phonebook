@@ -47,6 +47,7 @@ export class ContactEditComponent implements OnInit {
     email: new FormControl('', Validators.email),
     phoneNumber: new FormControl('', this.phoneNumberValidator()),
     physicalAddress: new FormControl(),
+    category: new FormControl(),
   });
 
   ngOnInit(): void {
