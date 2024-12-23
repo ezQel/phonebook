@@ -35,8 +35,8 @@ export const contactSchemaLiteral = {
       type: 'boolean',
     },
   },
-  // required: ['phoneNumber'],
-  // indexes: ['phoneNumber'],
+  required: ['id', 'phoneNumber'],
+  indexes: ['id'],
 } as const;
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars

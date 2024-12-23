@@ -1,0 +1,36 @@
+@if (viewMode === "LIST") {
+<div
+  class="flex items-center p-2 border-b border-gray-200 hover:bg-gray-100 cursor-pointer"
+>
+  <mat-checkbox (change)="selectionChange.emit($event)" />
+  <span class="text-6xl text-zinc-500 me-2">
+    <mat-icon inline fontIcon="account_box" />
+  </span>
+  <div class="mb-2">
+    <div class="text-lg font-medium mb-1">
+      {{ contact.firstName }} {{ contact.lastName }}
+    </div>
+    <div class="text-xs text-gray-600">
+      {{ contact.phoneNumber }} &middot; {{ contact.email }}
+    </div>
+  </div>
+</div>
+} @else {
+<div class="text-center border-slate-100 border rounded-lg">
+  <div class="text-start">
+    <mat-checkbox (change)="selectionChange.emit($event)" />
+  </div>
+  <div class="text-6xl text-zinc-500">
+    <mat-icon inline fontIcon="account_box" />
+  </div>
+  <div class="mb-2">
+    <div class="text-lg font-medium mb-2">
+      {{ contact.firstName }} {{ contact.lastName }}
+    </div>
+    <div class="text-xs text-gray-600">
+      <div>{{ contact.phoneNumber }}</div>
+      <div>{{ contact.email }}</div>
+    </div>
+  </div>
+</div>
+}

@@ -1,0 +1,55 @@
+<div class="py-12 px-4 md:px-24 mb-24">
+  <h1 class="text-3xl font-medium mb-8">Contacts</h1>
+  <div class="lg:flex items-center mb-8">
+    <input
+      [formControl]="search"
+      (ngModelChange)="filterContacts($event)"
+      type="search"
+      class="flex-1 border border-gray-300 rounded-lg p-2 me-12"
+      placeholder="Search by name, email or phone number"
+    />
+    <div class="flex items-center gap-8 mt-4 lg:mt-0">
+      <div class="flex-1">
+        <button (click)="deleteContacts()" class="btn me-4 text-red-600">
+          <mat-icon fontIcon="delete" /> Delete Selected
+        </button>
+        <button (click)="downloadCSV()" class="btn">
+          <mat-icon fontIcon="ios_share" /> Export
+        </button>
+      </div>
+      <mat-button-toggle-group
+        (valueChange)="toggleViewMode($event)"
+        [value]="viewMode"
+        name="viewMode"
+        aria-label="View Mode"
+      >
+        <mat-button-toggle value="LIST">
+          <mat-icon fontIcon="list" />
+        </mat-button-toggle>
+        <mat-button-toggle value="GRID">
+          <mat-icon fontIcon="grid_view" />
+        </mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+  </div>
+
+  @if (contactsDataSource) {
+  <div
+    [ngClass]="{ 'grid grid-cols-2 lg:grid-cols-4 gap-4': viewMode === 'GRID' }"
+  >
+    @if (!contactsDataSource.data) {
+    <p class="p-8">- No contacts -</p>
+    } @if (!contactsDataSource.filteredData.length) {
+    <p>-Contact not found-</p>
+    } @for (contact of contactsDataSource.filteredData; track contact.id) {
+    <app-contact
+      (selectionChange)="contactSelection.toggle(contact.id)"
+      [contact]="contact"
+      [viewMode]="viewMode"
+    />
+    }
+  </div>
+  } @else {
+  <p class="p-8">Loading contacts...</p>
+  }
+</div>
