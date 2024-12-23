@@ -13,7 +13,7 @@
       <div class="mb-3 font-bold text-2xl">
         {{ contact.firstName }} {{ contact.lastName }}
       </div>
-      <button class="btn bg-slate-100 me-3">
+      <button (click)="editContact()" class="btn bg-slate-100 me-3">
         <mat-icon fontIcon="edit" /> Edit
       </button>
       <button class="btn bg-slate-100">

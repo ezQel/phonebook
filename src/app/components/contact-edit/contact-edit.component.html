@@ -1,0 +1,78 @@
+<mat-dialog-content>
+  <div class="flex">
+    <h2 class="flex-1 text-xl font-bold">Edit Contact</h2>
+    <button matDialogClose class="btn">
+      <mat-icon fontIcon="close" />
+    </button>
+  </div>
+  <div>
+    <div class="relative inline-block">
+      <div class="text-7xl text-gray-400 me-4">
+        <mat-icon fontIcon="account_circle" inline="" />
+      </div>
+      <div
+        class="absolute bottom-2 right-4 w-6 h-6 flex items-center justify-items-center text-green-600 text-xl bg-white rounded-full"
+      >
+        <mat-icon fontIcon="add_circle" inline="" />
+      </div>
+    </div>
+  </div>
+  <form class="flex flex-col gap-4" [formGroup]="contactForm">
+    <div class="grid grid-cols-2 gap-4">
+      <div>
+        <label for="first-name">First Name</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="firstName"
+          id="first-name"
+        />
+      </div>
+      <div>
+        <label for="last-name">Last Name</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="lastName"
+          id="last-name"
+        />
+      </div>
+    </div>
+    <div>
+      <label for="last-name">Phone Number</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="phoneNumber"
+        id="phone-number"
+      />
+    </div>
+    <div>
+      <label for="last-name">Email</label>
+      <input
+        type="email"
+        class="form-control"
+        formControlName="email"
+        id="email"
+      />
+    </div>
+    <div>
+      <label for="physical-address">Physical Address</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="physicalAddress"
+        id="physical-address"
+      />
+    </div>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button
+    class="btn bg-green-600 text-white"
+    (click)="update()"
+    [disabled]="saving"
+  >
+    Save
+  </button>
+</mat-dialog-actions>

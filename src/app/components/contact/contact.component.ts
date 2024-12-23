@@ -27,7 +27,7 @@ export class ContactComponent {
   @HostListener('click')
   viewContact(): void {
     this.dialog.open(ContactDetailsComponent, {
-      data: this.contact,
+      data: this.contact.id,
       minWidth: '320px',
       width: '80%',
       height: '80%',
