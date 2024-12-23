@@ -11,10 +11,11 @@ import { Contact } from '../../models/contact';
 import { ContactService } from '../../services/contact.service';
 import { ContactEditComponent } from '../contact-edit/contact-edit.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { FavouriteToggleComponent } from "../favourite-toggle/favourite-toggle.component";
 
 @Component({
   selector: 'app-contact-details',
-  imports: [MatDialogContent, MatDialogClose, MatIcon],
+  imports: [MatDialogContent, MatDialogClose, MatIcon, FavouriteToggleComponent],
   templateUrl: './contact-details.component.html',
 })
 export class ContactDetailsComponent implements OnInit {

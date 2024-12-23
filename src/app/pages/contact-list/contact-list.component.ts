@@ -125,7 +125,7 @@ export class ContactListComponent implements OnInit {
         firstName: 'Abraham',
         lastName: 'Lincoln',
         physicalAddress: '123, Good Place',
-        isFavourited: true,
+        isFavourited: false,
       },
       {
         phoneNumber: '0712345678',
@@ -133,7 +133,7 @@ export class ContactListComponent implements OnInit {
         firstName: 'Jane',
         lastName: 'Doe',
         physicalAddress: '123, Good Place',
-        isFavourited: true,
+        isFavourited: false,
       },
       {
         phoneNumber: '0712345678',
@@ -141,7 +141,7 @@ export class ContactListComponent implements OnInit {
         firstName: 'Jomo',
         lastName: 'Kenyatta',
         physicalAddress: '123, Good Place',
-        isFavourited: true,
+        isFavourited: false,
       },
 
       {
@@ -149,7 +149,7 @@ export class ContactListComponent implements OnInit {
         email: 'zainab@gmail.com',
         firstName: 'Zainab',
         physicalAddress: '123, Good Place',
-        isFavourited: true,
+        isFavourited: false,
       },
     ] as Contact[];
 

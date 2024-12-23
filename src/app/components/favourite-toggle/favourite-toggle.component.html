@@ -1,0 +1,9 @@
+<button (click)="toggleFavourite(); $event.stopPropagation()" class="btn">
+  @if (contact.isFavourited) {
+  <span class="text-yellow-500">
+    <mat-icon fontIcon="star" />
+  </span>
+  } @else {
+  <mat-icon fontIcon="star_outline" />
+  }
+</button>

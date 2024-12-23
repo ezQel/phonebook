@@ -17,6 +17,9 @@
       {{ contact.phoneNumber }} &middot; {{ contact.email }}
     </div>
   </div>
+  <div class="flex-1 text-end">
+    <app-favourite-toggle [contact]="contact" />
+  </div>
 </div>
 } @else {
 <div class="text-center border-slate-100 border rounded-lg">

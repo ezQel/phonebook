@@ -12,10 +12,11 @@ import { MatIcon } from '@angular/material/icon';
 import { Contact } from '../../models/contact';
 import { ViewMode } from '../../models/view-mode';
 import { ContactDetailsComponent } from '../contact-details/contact-details.component';
+import { FavouriteToggleComponent } from "../favourite-toggle/favourite-toggle.component";
 
 @Component({
   selector: 'app-contact',
-  imports: [MatCheckbox, MatIcon],
+  imports: [MatCheckbox, MatIcon, FavouriteToggleComponent],
   templateUrl: './contact.component.html',
 })
 export class ContactComponent {
