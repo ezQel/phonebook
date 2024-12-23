@@ -97,8 +97,8 @@ export class ContactListComponent implements OnInit {
       return {
         'FIRST NAME': contact.firstName,
         'LAST NAME': contact.lastName,
-        EMAIL: contact.email,
         'PHONE NUMBER': contact.phoneNumber,
+        EMAIL: contact.email,
         'PHYSICAL ADDRESS': contact.physicalAddress,
       };
     });

@@ -49,8 +49,7 @@
       />
       @if (contactForm.get("phoneNumber")?.hasError("required")) {
       <span class="text-red-500">Phone number is required</span>
-      }
-      @if (contactForm.get("phoneNumber")?.hasError("invalidPhoneNumber")) {
+      } @if (contactForm.get("phoneNumber")?.hasError("invalidPhoneNumber")) {
       <span class="text-red-500">Invalid phone number</span>
       }
     </div>
@@ -63,8 +62,8 @@
         id="email"
       />
       @if (contactForm.get("email")?.hasError("email")) {
-        <span class="text-red-500">Invalid email</span>
-        }
+      <span class="text-red-500">Invalid email</span>
+      }
     </div>
     <div>
       <label for="physical-address">Physical Address</label>
@@ -79,7 +78,7 @@
 </mat-dialog-content>
 <mat-dialog-actions>
   <button
-    class="btn bg-green-600 text-white"
+    class="btn bg-green-600 hover:bg-green-700 text-white"
     (click)="update()"
     [disabled]="contactForm.invalid || saving"
   >
