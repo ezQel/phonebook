@@ -1,0 +1,8 @@
+.nav-item {
+  @apply flex flex-col flex-1 items-center font-medium py-2 px-3 text-gray-700 cursor-pointer font-medium;
+}
+
+.nav-item.active,
+.nav-item:hover {
+  @apply text-white text-green-800 border-b-2 border-green-800;
+}

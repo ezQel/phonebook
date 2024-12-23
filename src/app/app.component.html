@@ -1,1 +1,9 @@
-<router-outlet />
+<div class="hidden md:block w-[240px] fixed left-0 bottom-0 top-0">
+  <app-side-menu />
+</div>
+<div class="md:ms-[200px]">
+  <router-outlet />
+</div>
+<div class="md:hidden fixed bottom-0 left-0 right-0 bg-slate-50">
+  <app-bottom-menu />
+</div>
